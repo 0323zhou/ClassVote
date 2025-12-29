@@ -147,6 +147,19 @@ def calculate_results():
 
 def main():
     st.set_page_config(page_title="团员评议系统", layout="wide")
+    
+    # >>>>>>>>>>>>>>> 在这里插入隐藏代码 (开始) >>>>>>>>>>>>>>>
+    hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            header {visibility: hidden;}
+            footer {visibility: hidden;}
+            .stDeployButton {display:none;}
+            </style>
+            """
+    st.markdown(hide_st_style, unsafe_allow_html=True)
+    # <<<<<<<<<<<<<<< 在这里插入隐藏代码 (结束) <<<<<<<<<<<<<<<
+
     init_db()
 
     # --- 登录模块 ---
@@ -162,3 +175,4 @@ def main():
             with st.form("login_form"):
                 uid = st.text_input("账号 (学号 / admin)")
                 pwd = st.text_input("密码 (默认学号后6位)", type="password")
+
